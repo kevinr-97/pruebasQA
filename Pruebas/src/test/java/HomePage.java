@@ -1,9 +1,10 @@
+// HomePage.java
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class HomePage {
@@ -13,34 +14,52 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Inicializa WebDriverWait
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     private By signUpLink = By.id("signin2");
     private By loginLink = By.id("login2");
     private By cartLink = By.id("cartur");
-    private By phonesLink = By.xpath("//a[contains(text(),'Phones')]"); // Localizador actualizado
-    private By laptopsLink = By.xpath("//a[contains(text(),'Laptops')]"); // Localizador actualizado
+    private By phonesLink = By.xpath("//a[contains(text(),'Phones')]");
+    private By laptopsLink = By.xpath("//a[contains(text(),'Laptops')]");
     private By monitorsLink = By.xpath("//a[contains(text(),'Monitors')]");
 
     public void clickSignUpLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(signUpLink)); // Espera a que el elemento sea clickeable
-        driver.findElement(signUpLink).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(signUpLink));
+        element.click();
     }
 
     public void clickLoginLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(loginLink)); // Espera a que el elemento sea clickeable
-        driver.findElement(loginLink).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(loginLink));
+        element.click();
     }
 
     public void clickCartLink() {
-        wait.until(ExpectedConditions.elementToBeClickable(cartLink)); // Espera a que el elemento sea clickeable
-        driver.findElement(cartLink).click();
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(cartLink));
+        element.click();
     }
 
     public void selectProduct(By by, String product) {
-        WebElement productCategoryLink = wait.until(ExpectedConditions.presenceOfElementLocated(by)); // Espera a que el elemento esté presente
+        WebElement productCategoryLink = wait.until(ExpectedConditions.presenceOfElementLocated(by));
         productCategoryLink.click();
-        driver.findElement(By.linkText(product)).click();
+        clickProductLink(product); // Usamos el método robusto
+    }
+
+    private void clickProductLink(String product) {
+        By productLocator = By.linkText(product);
+        wait.until(ExpectedConditions.elementToBeClickable(productLocator));
+        driver.findElement(productLocator).click();
+    }
+
+    public void navigateToCart() {
+    }
+
+    public void closeSignUpModal() {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='signInModal']//button[@class='close']")))
+                    .click();
+        } catch (org.openqa.selenium.TimeoutException e) {
+            //Modal not present or already closed, that is ok.
+        }
     }
 }

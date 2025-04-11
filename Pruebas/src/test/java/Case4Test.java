@@ -1,4 +1,3 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,6 +36,8 @@ public class Case4Test {
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
 
+        // Check if the home page is loaded, by waiting for a home page element.
+        wait.until(ExpectedConditions.visibilityOfElementLocated(org.openqa.selenium.By.id("nava")));
         assertTrue(driver.getCurrentUrl().contains("https://www.demoblaze.com/"));
     }
 

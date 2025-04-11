@@ -1,18 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: Case8Test
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.991 s <<< FAILURE! -- in Case8Test
-Case8Test.testCase8 -- Time elapsed: 6.990 s <<< ERROR!
-org.openqa.selenium.ElementNotInteractableException: 
-element not interactable
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.834 s <<< FAILURE! -- in Case8Test
+Case8Test.testCase8 -- Time elapsed: 4.832 s <<< ERROR!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <a class="nav-link" href="#" id="login2" data-toggle="modal" data-target="#logInModal" style="display: block;">...</a> is not clickable at point (1121, 37). Other element would receive the click: <div class="modal fade show" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" style="display: block;">...</div>
   (Session info: chrome=135.0.7049.85)
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [bedada9cc838ecf43dd0107e601758f3, sendKeysToElement {id=f.A6CEA2509D2E8D03FDA7F5F85B452C70.d.6AAC6B47B682BB3AFEEEA7242819916F.e.101, value=[Ljava.lang.CharSequence;@5e5af8e1}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\kevin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61143}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61143/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (bedada9cc838ecf43dd0107e601758f3)] -> id: sign-username]
-Session ID: bedada9cc838ecf43dd0107e601758f3
+Command: [fec23a11ef90ec2bd37b66063a6dbcf9, clickElement {id=f.FBDD83C31C43F0D4F32F407DA2AB8076.d.400BA075507BFE0ABB60BCFCB71FA3FA.e.92}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\kevin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57779}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57779/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (fec23a11ef90ec2bd37b66063a6dbcf9)] -> id: login2]
+Session ID: fec23a11ef90ec2bd37b66063a6dbcf9
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
@@ -24,10 +24,9 @@ Session ID: bedada9cc838ecf43dd0107e601758f3
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:111)
-	at SignUpPage.enterUsername(SignUpPage.java:17)
-	at SignUpPage.signUp(SignUpPage.java:29)
-	at Case8Test.setUp(Case8Test.java:41)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+	at HomePage.clickLoginLink(HomePage.java:34)
+	at Case8Test.setUp(Case8Test.java:44)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
