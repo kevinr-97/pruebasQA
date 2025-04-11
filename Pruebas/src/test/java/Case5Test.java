@@ -1,13 +1,14 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
+// Case5Test.java
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.By; // Importa la clase By
 
 import java.time.Duration;
 
@@ -22,7 +23,20 @@ public class Case5Test {
 
     @Before
     public void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+
+        // 1. Deshabilitar el gestor de contraseñas de Chrome a través de los switches de la línea de comandos
+        options.addArguments("password-store=basic");
+        options.addArguments("profile.password_manager_enabled=false");
+
+        // 2. intentar modo incógnito
+        //options.addArguments("--incognito");
+
+        // 3. intentar evitar autocompletado del navegador
+        //options.addArguments("disable-infobars");
+        //options.addArguments("disable-save-password-bubble");
+
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://www.demoblaze.com/");
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -38,6 +52,8 @@ public class Case5Test {
 
         Alert alert1 = wait.until(ExpectedConditions.alertIsPresent());
         alert1.accept();
+
+        homePage.closeSignUpModal(); // Close the modal
 
         homePage.clickSignUpLink();
         signUpPage.signUp("testuser123", "password123");

@@ -1,33 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: Case5Test
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.839 s <<< FAILURE! -- in Case5Test
-Case5Test.testCase5 -- Time elapsed: 2.836 s <<< ERROR!
-org.openqa.selenium.ElementNotInteractableException: 
-element not interactable
-  (Session info: chrome=135.0.7049.85)
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 14.88 s <<< FAILURE! -- in Case5Test
+Case5Test.testCase5 -- Time elapsed: 14.87 s <<< ERROR!
+org.openqa.selenium.TimeoutException: 
+Expected condition failed: waiting for alert to be present (tried for 10 second(s) with 500 milliseconds interval)
 Build info: version: '4.11.0', revision: '040bc5406b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '24'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c0fa63ec204ef099aa8af9d622163343, sendKeysToElement {id=f.A28304FB6A24B588D40435B7654A8391.d.A5FD28E8676558C0930FBF5F75F671DA.e.38, value=[Ljava.lang.CharSequence;@6e1b9411}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\kevin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61077}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61077/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (c0fa63ec204ef099aa8af9d622163343)] -> id: sign-username]
-Session ID: c0fa63ec204ef099aa8af9d622163343
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:518)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:224)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:111)
-	at SignUpPage.enterUsername(SignUpPage.java:17)
-	at SignUpPage.signUp(SignUpPage.java:29)
-	at Case5Test.testCase5(Case5Test.java:37)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 135.0.7049.85, chrome: {chromedriverVersion: 135.0.7049.84 (6c019e560019..., userDataDir: C:\Users\kevin\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57699}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57699/devtoo..., se:cdpVersion: 135.0.7049.85, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7f4f1af98a0bf764c074839cf4d506c7
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:230)
+	at Case5Test.testCase5(Case5Test.java:60)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
