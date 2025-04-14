@@ -38,7 +38,7 @@ public class Case1Test {
         // Localiza el teléfono por su texto de enlace
         homePage.selectProduct(By.xpath("//a[contains(text(),'Phones')]"), "Samsung galaxy s6");
 
-        // Verifica que la URL de la página del producto se haya cargado
+        // Verifica que la URL de la página del producto se haya cargado (CORRECCIONES y MEJORAS)
         System.out.println("URL antes de la espera: " + driver.getCurrentUrl()); // Logging antes de la espera
         wait.until(ExpectedConditions.urlContains("prod.html")); // Verificación flexible
         System.out.println("URL después de la espera: " + driver.getCurrentUrl()); // Logging después de la espera
