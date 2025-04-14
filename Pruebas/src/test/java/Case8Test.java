@@ -1,13 +1,12 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.By; // Importa la clase By
 
 import java.time.Duration;
 
@@ -22,7 +21,6 @@ public class Case8Test {
     private ProductPage productPage;
     private CartPage cartPage;
     private OrderPage orderPage;
-    private SignUpPage signUpPage;
 
     @Before
     public void setUp() {
@@ -35,27 +33,25 @@ public class Case8Test {
         productPage = new ProductPage(driver);
         cartPage = new CartPage(driver);
         orderPage = new OrderPage(driver);
-        signUpPage = new SignUpPage(driver);
         //pre-requisito
-        homePage.clickSignUpLink();
-        signUpPage.signUp("testuser123", "password123");
-        Alert alert1 = wait.until(ExpectedConditions.alertIsPresent());
-        alert1.accept();
         homePage.clickLoginLink();
-        loginPage.login("testuser123", "password123");
+        loginPage.login("josebryan123", "password123");
+
+        // Espera a que el inicio de sesión se complete con éxito
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nameofuser"))); // Espera un elemento que aparece después del inicio de sesión
     }
 
     @Test
     public void testCase8() {
-        // Caso 8: Un usuario que inicia sesión exitosamente y compra un monitor
-        homePage.selectProduct(By.linkText("Monitors"), "Apple monitor 24"); // Usa By.linkText
+        // Caso 8: Un usuario que inicia sesión exitosamente y compra una laptop.
+        homePage.selectProduct(By.linkText("Laptops"), "MacBook Pro");
         productPage.clickAddToCartButton();
 
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
 
         cartPage.navigateToCart();
-        assertEquals("Apple monitor 24", cartPage.getProductTitle());
+        assertEquals("MacBook Pro", cartPage.getProductTitle());
 
         cartPage.clickPlaceOrderButton();
         orderPage.completeOrder("Kevin", "Guatemala", "Coban", "1234567890", "12", "2025");
